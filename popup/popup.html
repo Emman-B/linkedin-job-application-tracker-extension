@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <h1 id="apptracker__header">Tracked Applications</h1>
+
+    <div class="table-wrapper">
+      <table id="apptracker__table">
+        <thead class="apptracker__table-head-row">
+          <tr>
+            <th>Company</th>
+            <th>Job Title</th>
+            <th>Apply Method</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="apptracker__table-body-row"></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <button id="apptracker__clear-button">Clear All</button>
+      <button id="apptracker__copy-to-clipboard-button">Copy to Clipboard</button>
+      <button id="apptracker__add-current-selected-job-button">Add Current Selected Job (Might not copy apply method)</button>
+    </footer>
+
+
+
+    <script defer src="popup.js"></script>
+  </body>
+</html>

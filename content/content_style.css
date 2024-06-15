@@ -1,0 +1,4 @@
+/* For the purpose of indicating whether application will be tracked */
+.jobs-easy-apply-modal[application-tracker-listener="true"]::before {
+    content: "This application will be tracked by the extension!";
+}

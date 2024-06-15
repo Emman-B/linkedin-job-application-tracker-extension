@@ -1,0 +1,86 @@
+body {
+    width: 99vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table-wrapper {
+    overflow-y: auto;
+}
+
+#apptracker__table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-bottom: 60px;
+}
+
+#apptracker__table td, #apptracker__table th {
+    border: 1px solid #ddd;
+}
+
+.apptracker__table-head-row {
+    background-color: hsl(210, 90%, 40%);
+    color: white;
+}
+
+.apptracker__table-head-row th {
+    padding: 8px 2px;
+}
+
+.apptracker__table-body-row td {
+    padding: 8px;
+}
+
+.apptracker__table-body-row tr:nth-child(even) {
+    background-color: hsl(0, 0%, 95%);
+}
+
+footer {
+    position: fixed;
+    bottom: 8px;
+}
+
+footer button {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+
+    transition-duration: 0.2s;
+}
+
+#apptracker__clear-button {
+    background-color: hsl(6, 78%, 57%);
+}
+
+#apptracker__clear-button:hover {
+    background-color: hsl(6, 78%, 41%);
+}
+
+#apptracker__clear-button:active {
+    background-color: hsl(6, 78%, 35%);
+}
+
+#apptracker__copy-to-clipboard-button {
+    background-color: hsl(204, 70%, 53%);
+}
+
+#apptracker__copy-to-clipboard-button:hover {
+    background-color: hsl(204, 70%, 39%);
+}
+
+#apptracker__copy-to-clipboard-button:active {
+    background-color: hsl(204, 70%, 30%);
+}
+
+#apptracker__add-current-selected-job-button {
+    background-color: hsl(145, 63%, 49%);
+}
+
+#apptracker__add-current-selected-job-button:hover {
+    background-color: hsl(145, 63%, 36%);
+}
+
+#apptracker__add-current-selected-job-button:active {
+    background-color: hsl(145, 63%, 28%);
+}
