@@ -9,7 +9,7 @@
   "permissions": [ "storage", "tabs", "clipboardWrite" ],
   "content_scripts": [
     {
-      "matches": [ "https://www.linkedin.com/jobs/*" ],
+      "matches": [ "https://www.linkedin.com/*" ],
       "js": [ "content/content_script.js" ],
       "css": [ "content/content_style.css" ]
     }

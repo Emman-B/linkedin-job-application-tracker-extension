@@ -25,6 +25,7 @@ const handleDeletingJobButton = async (event) => {
 const handleAddCurrentSelectedJob = async () => {
     const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true, url: "https://www.linkedin.com/jobs/*"});
 
+    // Send message to content script to add current job
     if (tab) {
         await chrome.tabs.sendMessage(tab.id, { addCurrentJob: true });
     }

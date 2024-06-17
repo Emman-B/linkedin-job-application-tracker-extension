@@ -9,10 +9,6 @@ const getJobDetailsElement = () => {
     }
 };
 
-// Window that contains the selected job's details
-const jobDetailsWindow = getJobDetailsElement();
-
-
 // Formats a date object to be MM/DD/YYYY
 const applicationDateFormatted = () => {
     const date = new Date();
@@ -98,10 +94,32 @@ const parseData = (externalUrl) => {
     })();
 };
 
-// When job details window is clicked anywhere, it attaches a listener to the jobs easy-apply modal if it exists
-jobDetailsWindow.addEventListener('click', addEasyApplyModalSubmitHandler);
-// When job details window is clicked anywhere, it checks if the button is a "Yes" button. If so, parses the data.
-jobDetailsWindow.addEventListener('click', externalApplyHandler);
+// Adds a mutation observer to observe the entire document body, which will call the provided callback
+// whenever changes to the page occur. (This is due to content scripts running on entire LinkedIn website).
+const addMutationObserver = (callback) => {
+    // Mutation Observer options (to check what mutations to observe)
+    const config = { attributes: false, childList: true, subtree: false };
+
+    // Create observer instance linked to the callback
+    const observer = new MutationObserver(callback);
+
+    // start observing the target node for configured mutations
+    observer.observe(document.body, config);
+};
+
+// Initializes the content script only if it is on the right starting path (which is the /jobs path).
+// Initialization will add event listeners to the job details window.
+const initializeContentScript = () => {
+    if (window.location.href.startsWith("https://www.linkedin.com/jobs/")) {
+        // Window that contains the selected job's details
+        const jobDetailsWindow = getJobDetailsElement();
+
+        // When job details window is clicked anywhere, it attaches a listener to the jobs easy-apply modal if it exists
+        jobDetailsWindow.addEventListener('click', addEasyApplyModalSubmitHandler);
+        // When job details window is clicked anywhere, it checks if the button is a "Yes" button. If so, parses the data.
+        jobDetailsWindow.addEventListener('click', externalApplyHandler);
+    }
+};
 
 // If manually requested to add job to tracker, handle it here
 chrome.runtime.onMessage.addListener((request) => {
@@ -109,3 +127,9 @@ chrome.runtime.onMessage.addListener((request) => {
         parseData();
     }
 });
+
+// Add the mutation observer to the document body at start
+addMutationObserver(initializeContentScript);
+
+// To handle refreshes, initialize the content script as well
+initializeContentScript();
