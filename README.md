@@ -4,6 +4,8 @@ This is a Google Chrome extension meant to help track job applications made via
 LinkedIn. This will not work outside of LinkedIn. I also do not plan on publishing
 this extension to the Chrome Web Store.
 
+![image](https://github.com/Emman-B/linkedin-job-application-tracker-extension/assets/34151856/50f8c601-298b-4692-a9d0-38af0425abc3)
+
 ## Installation 🛠
 1. Pull this repository into a folder.
 2. Go to `chrome://extensions` and enable developer mode.
