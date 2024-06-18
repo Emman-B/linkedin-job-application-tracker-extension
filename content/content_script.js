@@ -40,7 +40,7 @@ const externalApplyHandler = (event) => {
         } else if (event.target.textContent.includes("Apply") && !event.target.textContent.includes("Easy")) {
             // Apply is detected, send message to service worker to parse the domain of the redirect
             (async () => {
-                const response = await chrome.runtime.sendMessage({externalApply: true});
+                const response = await chrome.runtime.sendMessage({ externalApply: true });
                 // response will be the pending URL
                 event.target.dataset.appTrackerExternalUrl = response || "";
             })();
@@ -98,7 +98,7 @@ const parseData = (externalUrl) => {
 // whenever changes to the page occur. (This is due to content scripts running on entire LinkedIn website).
 const addMutationObserver = (callback) => {
     // Mutation Observer options (to check what mutations to observe)
-    const config = { attributes: false, childList: true, subtree: false };
+    const config = { childList: true, subtree: true };
 
     // Create observer instance linked to the callback
     const observer = new MutationObserver(callback);
@@ -114,10 +114,12 @@ const initializeContentScript = () => {
         // Window that contains the selected job's details
         const jobDetailsWindow = getJobDetailsElement();
 
-        // When job details window is clicked anywhere, it attaches a listener to the jobs easy-apply modal if it exists
-        jobDetailsWindow.addEventListener('click', addEasyApplyModalSubmitHandler);
-        // When job details window is clicked anywhere, it checks if the button is a "Yes" button. If so, parses the data.
-        jobDetailsWindow.addEventListener('click', externalApplyHandler);
+        if (jobDetailsWindow) {
+            // When job details window is clicked anywhere, it attaches a listener to the jobs easy-apply modal if it exists
+            jobDetailsWindow.addEventListener('click', addEasyApplyModalSubmitHandler);
+            // When job details window is clicked anywhere, it checks if the button is a "Yes" button. If so, parses the data.
+            jobDetailsWindow.addEventListener('click', externalApplyHandler);
+        }
     }
 };
 

@@ -1,4 +1,14 @@
 /* For the purpose of indicating whether application will be tracked */
 .jobs-easy-apply-modal[application-tracker-listener="true"]::before {
-    content: "This application will be tracked by the extension!";
+    content: "💡 This application will be tracked by the extension.";
+
+    border: 2px solid hsl(203, 92%, 85%);
+    border-radius: 8px;
+
+    background-color: hsl(203, 92%, 30%);
+
+    padding: 8px;
+    margin: 16px;
+
+    width: fit-content;
 }
