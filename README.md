@@ -19,8 +19,6 @@ this extension to the Chrome Web Store.
   the listings page.
 2. 📝 Apply to any job on the list. If a job has LinkedIn Easy Apply, you will see some extra text
 at the top of the easy apply modal: "This application will be tracked by the extension!".
-  a. The reason for this is due to the known issue described above. This will be updated or removed
-  once the issue is figured out.
 3. 💻 After you apply to the job, the extension will automatically track the job's company name,
 job title, job listing URL, method of application (which is the domain of where you were redirected
 to, or simply "LinkedIn Easy Apply"), and the month, day, and year of when you applied.
@@ -36,11 +34,7 @@ next to the tracked job.
 "Add Current Selected Job" button and it will track everything except for the apply method.
 
 ## Known Issues ⚠
-- There is a known issue where arriving onto the LinkedIn Job Search/Listings page in which the
-extension will not work at all. The error message provided is `Uncaught (in promise) Error: Could
-not establish connection. Receiving end does not exist.`.
-  - Although a temporary fix is to refresh the page, it is possible that this will go unnoticed
-  and result in making multiple applications where none are tracked, so keep this in mind.
+- None so far!
 
 ## Features ✅
 - LinkedIn job application tracking either in the job search/listings page or the job's specific
